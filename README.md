@@ -1,2 +1,2 @@
-# dotfiles-macos
-My dotfiles for mac OS...eerrrr....at least, the relevant ones anyways....🙄
+# dotfiles
+My dotfiles for mac OS and Linux...eerrrr....at least, the relevant ones anyways....🙄
