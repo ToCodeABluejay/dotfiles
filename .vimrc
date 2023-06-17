@@ -14,3 +14,8 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'zenbro/mirror.vim'
 
+Plugin 'valloric/youcompleteme'
+
+Plugin 'tpope/vim-fugitive'
+
+Plugin 'scrooloose/nerdtree'
