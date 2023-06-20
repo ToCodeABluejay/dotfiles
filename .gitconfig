@@ -3,3 +3,5 @@
 	name = Gabriel Bauer
 [core]
 	excludesfile = ~/.gitignore
+[merge]
+	tool = meld
