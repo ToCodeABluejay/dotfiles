@@ -109,7 +109,7 @@ mount /dev/arch/var_log_audit /mnt/var/log/audit
 mount /dev/arch/var_tmp /mnt/var/tmp
 
 # Will want to switch to doas over sudo likely at some point...
-pacstrap /mnt base base-devel linux-hardened linux-lts f2fs-tools linux-firmware sudo nushell lvm2 neovim iwd git waybar network-manager-applet midori alacritty fuzzel wine-stable
+pacstrap /mnt base base-devel linux-hardened linux-lts f2fs-tools linux-firmware sudo nushell lvm2 neovim iwd git waybar network-manager-applet midori alacritty fuzzel wine
 
 
 ## Configure
