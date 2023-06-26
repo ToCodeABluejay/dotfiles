@@ -71,13 +71,13 @@ cryptsetup open --type luks2 --persistent "${encrypted_part}" lvm
 pvcreate --dataalignment 1m /dev/mapper/lvm
 vgcreate arch /dev/mapper/lvm
 
-lvcreate -L 30% arch -n root
-lvcreate -L 8% arch -n swap
-lvcreate -L 2% arch -n tmp
-lvcreate -L 2% arch -n var
-lvcreate -L 2% arch -n var_tmp
-lvcreate -L 2% arch -n var_log
-lvcreate -L 1% arch -n var_log_audit
+lvcreate -l 30%VG arch -n root
+lvcreate -l 8%VG arch -n swap
+lvcreate -l 2%VG arch -n tmp
+lvcreate -l 2%VG arch -n var
+lvcreate -l 2%VG arch -n var_tmp
+lvcreate -l 2%VG arch -n var_log
+lvcreate -l 1%VG arch -n var_log_audit
 lvcreate -l 100%FREE arch -n home
 
 mkfs.f2fs /dev/arch/root
