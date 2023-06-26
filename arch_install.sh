@@ -53,6 +53,7 @@ timedatectl set-ntp true
 
 
 ## System partitions
+echo ">> Setting up system partitions...(1/5)"
 parted --script "${device}" -- mklabel gpt \
   mkpart ESP fat32 1Mib 1GiB \
   set 1 boot on \
@@ -65,6 +66,7 @@ wipefs "${efi_part}"
 wipefs "${encrypted_part}"
 
 ### Filesystems
+echo ">> Configuring partitions & filesystems...(2/5)"
 mkfs.vfat -F32 "${efi_part}"
 
 cryptsetup luksFormat "${encrypted_part}" --type luks2
@@ -93,6 +95,7 @@ mkswap /dev/arch/swap
 
 
 ## Install system
+echo ">> Installing system...(3/5)"
 mount /dev/arch/root /mnt
 mkdir /mnt/home
 mount /dev/arch/home /mnt/home
@@ -110,6 +113,7 @@ pacstrap /mnt base base-devel linux-hardened linux-lts f2fs-tools linux-firmware
 
 
 ## Configure
+echo ">> Configurating system...(4/5)"
 genfstab -t PARTUUID /mnt >> /mnt/etc/fstab
 less /mnt/etc/fstab
 echo "${hostname}" > /mnt/etc/hostname
@@ -143,6 +147,7 @@ arch-chroot -u ${user} /mnt paru -S hyprland-git
 arch-chroot -u ${user} /mnt git clone https://github.com/ToCodeABluejay/dotfiles.git && cp -r dotfiles/.[^.]* ~ && rm -rf dotfiles
 
 ## Install bootloader
+echo ">> Installing bootloader...(5/5)"
 mkdir /mnt/etc/pacman.d/hooks
 cat <<EOF > /mnt/etc/pacman.d/hooks/100-systemd-boot.hook
 [Trigger]
@@ -168,3 +173,5 @@ linux /vmlinuz-linux
 initrd /initramfs-linux.img
 options cryptdevice=PARTUUID=$(blkid -s PARTUUID -o value "${encrypted_part}"):lvm root=/dev/volgroup0/lv_root rw
 EOF
+
+echo "Installation complete! System can now be rebooted!!"
