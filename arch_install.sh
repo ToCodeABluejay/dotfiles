@@ -113,7 +113,7 @@ pacstrap /mnt base base-devel linux-hardened linux-lts f2fs-tools linux-firmware
 
 
 ## Configure
-echo ">> Configurating system...(4/5)"
+echo ">> Configuring system...(4/5)"
 genfstab -t PARTUUID /mnt >> /mnt/etc/fstab
 less /mnt/etc/fstab
 echo "${hostname}" > /mnt/etc/hostname
