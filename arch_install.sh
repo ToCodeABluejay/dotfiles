@@ -2,6 +2,8 @@
 #
 # 
 # Credits: This script is heavily inspired by this post https://disconnected.systems/blog/archlinux-installer
+# Extended credits: Based off of the gist 'irozgar/installer.sh'
+#
 # Extended under the influence of the NSA's Guide to the Secure Configuration of RHEL5
 # As well as Red Hat's own security suggestions.
 # Designed to be used on devices with flash storage. Intended to be good enough to be secure without being paranoid,
