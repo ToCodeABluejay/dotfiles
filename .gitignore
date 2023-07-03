@@ -3,3 +3,5 @@
 .DS_Store
 ~*
 
+history.txt
+.bash_history
