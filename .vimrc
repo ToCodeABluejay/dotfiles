@@ -22,6 +22,6 @@ Plugin 'scrooloose/nerdtree'
 
 call vundle#end()
 
-" Start NERDTree. If a file is specified, move the cursor to its window.
+" Start NERDTree, unless a file or session is specified, eg. vim -S session_file.vim.
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
