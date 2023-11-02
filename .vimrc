@@ -20,6 +20,10 @@ Plugin 'tpope/vim-fugitive'
 
 Plugin 'scrooloose/nerdtree'
 
+Plugin 'mbbill/undotree'
+
+Plugin 'racer-rust/vim-racer'
+
 call vundle#end()
 
 " Start NERDTree, unless a file or session is specified, eg. vim -S session_file.vim.
